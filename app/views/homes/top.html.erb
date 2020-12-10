@@ -1,9 +1,16 @@
-<h1>welcome to Bookers !!</h1>
+<%= render 'layouts/notifications' %>
 
-<p>In Bookers,<br>
-you can share and exchange your opinions , inpressions , and emotions<br>
-about various books!
-</p>
-
- <li><%= link_to "Signup", new_user_registration_path %></li>
- <li><%= link_to "Login", new_user_session_path %></li>
+<div class='container'>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>welcome to <i class="fas fa-book"></i><strong>Bookers</strong> !!</h1>
+      <p>In <i class="fas fa-book"></i><strong>Bookers</strong>,</p>
+      <p>you can share and exchange your bodys , inpressions , and emotions</p>
+      <p>about varioius books!</p>
+        <div class="btn-wrapper">
+          <p><%= link_to "log In", new_user_session_path, class: "btn btn-info btn-block" %></p>
+          <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-block" %></p>
+        </div>
+    </div>
+  </div>
+</div>
