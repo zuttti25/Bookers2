@@ -1,4 +1,5 @@
 <%= render 'layouts/notifications' %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -6,7 +7,31 @@
       <%= render 'books/New-book', book: @book %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <%= render 'books/Book', books:@books, user:@user %>
+<h1>Books</h1>
+        <table class="table table-main">
+            <tr>
+              <th colspan="1"></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(@user.id) do %>
+                  <%= attachment_image_tag book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book.title, book_path(book.id) %>
+              </td>
+              <td>
+                <%= book.body %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>
